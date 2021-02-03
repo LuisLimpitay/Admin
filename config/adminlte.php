@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Info</b>DP',
+    'logo' => '<b>PSW</b>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -242,23 +242,40 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'Artículos',
+            'text'        => 'Cursos',
             'url'         => 'articulos',
             'icon'        => 'far fa-fw fa-file',
-            'label'       => 'CRUD',
+            'label'       => '',
             'label_color' => 'warning',
         ],
-        ['header' => 'Configuración de la cuenta'],
+        [
+            'text'        => 'Lugares',
+            'url'         => '#',
+            'icon'        => 'far fa-fw fa-file',
+            'label'       => '  ',
+            'label_color' => 'warning',
+        ],
+        [
+            'text'        => 'Pedidos',
+            'url'         => '#',
+            'icon'        => 'far fa-fw fa-file',
+            'label'       => '',
+            'label_color' => 'warning',
+        ],
+        [
+            'text'        => 'Usuarios',
+            'url'         => '#',
+            'icon'        => 'fas fa-fw fa-user',
+            'label'       => '',
+            'label_color' => 'warning',
+        ],
+        ['header' => 'Configuración'],
         [
             'text' => 'Perfil de Usuario',
             'url'  => 'user/profile',
             'icon' => 'fas fa-fw fa-user',
         ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
+       
         [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
@@ -304,7 +321,7 @@ return [
             'url'        => '#',
         ],
         [
-            'text'       => 'warning',
+            'text'       => 'warDning',
             'icon_color' => 'yellow',
             'url'        => '#',
         ],

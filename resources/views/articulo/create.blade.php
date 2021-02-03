@@ -1,13 +1,12 @@
 @extends('adminlte::page')
 
-@section('title', 'CRUD con Laravel 8')
+@section('title', 'CREATE')
 
 @section('content_header')
-   <h1>Crear Artículo</h1>
+    <h1>CREATE</h1>
 @stop
 
 @section('content')
-    
 <form action="/articulos" method="POST">
   @csrf
   <div class="mb-3">
@@ -35,5 +34,6 @@
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
-@section('js')  
+@section('js')
+    <script> console.log('Hi!'); </script>
 @stop
