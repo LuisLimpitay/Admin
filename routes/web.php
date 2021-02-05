@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::resource('articulos','App\Http\Controllers\ArticuloController');
+Route::resource('courses','App\Http\Controllers\CourseController');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

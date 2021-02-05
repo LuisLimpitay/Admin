@@ -243,7 +243,7 @@ return [
         ],
         [
             'text'        => 'Cursos',
-            'url'         => 'articulos',
+            'url'         => 'courses',
             'icon'        => 'far fa-fw fa-file',
             'label'       => '',
             'label_color' => 'warning',

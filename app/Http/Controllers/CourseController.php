@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Articulo;
+use App\Models\course;
 
-class ArticuloController extends Controller
+class courseController extends Controller
 {
      public function __construct(){
          $this->middleware('auth');
@@ -17,8 +17,8 @@ class ArticuloController extends Controller
      */
     public function index()
     {
-        $articulos = Articulo::all();
-        return view('articulo.index')->with('articulos',$articulos);
+        $courses = course::all();
+        return view('course.index')->with('courses',$courses);
     }
 
     /**
@@ -28,7 +28,7 @@ class ArticuloController extends Controller
      */
     public function create()
     {
-        return view('articulo.create');
+        return view('course.create');
     }
 
     /**
@@ -39,16 +39,16 @@ class ArticuloController extends Controller
      */
     public function store(Request $request)
     {        
-        $articulos = new Articulo();
+        $courses = new course();
 
-        $articulos->codigo = $request->get('codigo');
-        $articulos->descripcion = $request->get('descripcion');
-        $articulos->cantidad = $request->get('cantidad');
-        $articulos->precio = $request->get('precio');
+        $courses->name = $request->get('name');
+        $courses->descripcion = $request->get('descripcion');
+        $courses->cantidad = $request->get('cantidad');
+        $courses->precio = $request->get('precio');
 
-        $articulos->save();
+        $courses->save();
 
-        return redirect('/articulos');
+        return redirect('/courses');
 
     }
 
@@ -71,8 +71,8 @@ class ArticuloController extends Controller
      */
     public function edit($id)
     {
-        $articulo = Articulo::find($id);
-        return view('articulo.edit')->with('articulo',$articulo);
+        $course = course::find($id);
+        return view('course.edit')->with('course',$course);
     }
 
     /**
@@ -84,16 +84,16 @@ class ArticuloController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $articulo = Articulo::find($id);
+        $course = course::find($id);
 
-        $articulo->codigo = $request->get('codigo');
-        $articulo->descripcion = $request->get('descripcion');
-        $articulo->cantidad = $request->get('cantidad');
-        $articulo->precio = $request->get('precio');
+        $course->name = $request->get('name');
+        $course->descripcion = $request->get('descripcion');
+        $course->cantidad = $request->get('cantidad');
+        $course->precio = $request->get('precio');
 
-        $articulo->save();
+        $course->save();
 
-        return redirect('/articulos');
+        return redirect('/courses');
     }
 
     /**
@@ -104,8 +104,8 @@ class ArticuloController extends Controller
      */
     public function destroy($id)
     {
-        $articulo = Articulo::find($id);
-        $articulo->delete();
-        return redirect('/articulos');
+        $course = course::find($id);
+        $course->delete();
+        return redirect('/courses');
     }
 }
