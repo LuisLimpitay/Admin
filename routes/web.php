@@ -13,12 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('auth.login');
-});
+});*/
 
 Route::resource('courses','App\Http\Controllers\CourseController');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::resource('contents','App\Http\Controllers\ContentController');
+
+Route::resource('teachers','App\Http\Controllers\TeacherController');
+
+Route::resource('places','App\Http\Controllers\PlaceController');
+
+
+/*Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
-})->name('dashboard');
+})->name('dashboard');*/

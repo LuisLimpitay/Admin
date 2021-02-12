@@ -233,8 +233,8 @@ return [
     'menu' => [
         [
             'text' => 'search',
-            'search' => false,
-            'topnav' => true,
+            'search' => true,
+            'topnav' => false,
         ],
         [
             'text' => 'blog',
@@ -249,21 +249,28 @@ return [
             'label_color' => 'warning',
         ],
         [
-            'text'        => 'Lugares',
-            'url'         => '#',
+            'text'        => 'Contenidos',
+            'url'         => 'contents',
             'icon'        => 'far fa-fw fa-file',
             'label'       => '  ',
             'label_color' => 'warning',
         ],
         [
-            'text'        => 'Pedidos',
-            'url'         => '#',
+            'text'        => 'Instructores',
+            'url'         => 'teachers',
             'icon'        => 'far fa-fw fa-file',
             'label'       => '',
             'label_color' => 'warning',
         ],
         [
-            'text'        => 'Usuarios',
+            'text'        => 'Lugares',
+            'url'         => 'places',
+            'icon'        => 'far fa-fw fa-file',
+            'label'       => '',
+            'label_color' => 'warning',
+        ],
+        [
+            'text'        => 'User',
             'url'         => '#',
             'icon'        => 'fas fa-fw fa-user',
             'label'       => '',

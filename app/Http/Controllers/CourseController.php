@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\course;
+use App\Models\Content;
+use App\Models\Course;
+use App\Models\Teacher;
+use Illuminate\Support\Facades\DB;
+
 
 class courseController extends Controller
 {
-     public function __construct(){
+    /* public function __construct(){
          $this->middleware('auth');
      }
     /**
@@ -15,11 +19,26 @@ class courseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $courses = course::all();
-        return view('course.index')->with('courses',$courses);
-    }
+     
+       /* $courses = DB::table('courses')
+        ->join('contents', 'courses.id', '=', 'contents.id')
+        ->join('teachers', 'courses.id', '=', 'teachers.id')
+        ->join('places', 'courses.id', '=', 'places.id')
+
+        ->select(
+            'courses.date', 'courses.time', 'courses.stock', 
+            'contents.name_content', 'contents.price', 
+            'teachers.name_teacher',
+            'places.city')
+        ->get();*/
+        
+        $courses = Course::all();
+       return view('course.index')->with('courses',$courses);
+
+        
+    }   
 
     /**
      * Show the form for creating a new resource.
@@ -28,7 +47,21 @@ class courseController extends Controller
      */
     public function create()
     {
-        return view('course.create');
+
+        $courses = DB::table('courses')
+            ->join('contents', 'courses.id', '=', 'contents.id')
+            ->join('teachers', 'courses.id', '=', 'teachers.id')
+            ->join('places', 'courses.id', '=', 'places.id')
+
+            ->select('courses.date', 'courses.time', 'courses.stock', 
+            'contents.name_content', 'contents.price', 
+            'teachers.name_teacher',
+            'places.city')
+            ->get();
+            
+        return ($courses) ;
+
+
     }
 
     /**
@@ -39,14 +72,14 @@ class courseController extends Controller
      */
     public function store(Request $request)
     {        
-        $courses = new course();
+        $course = course::find();
+        $contents = Content::pluck('name_content', 'price', 'id');
 
-        $courses->name = $request->get('name');
-        $courses->descripcion = $request->get('descripcion');
-        $courses->cantidad = $request->get('cantidad');
-        $courses->precio = $request->get('precio');
+        $course->date = $request->get('date');
+        $course->time = $request->get('time');
+        $course->stock = $request->get('stock');
 
-        $courses->save();
+        $course->save();
 
         return redirect('/courses');
 
@@ -84,12 +117,12 @@ class courseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $course = course::find($id);
-
-        $course->name = $request->get('name');
-        $course->descripcion = $request->get('descripcion');
-        $course->cantidad = $request->get('cantidad');
-        $course->precio = $request->get('precio');
+        $course = Course::find($id);
+        $content = Content::pluck('name_content', 'price', 'id');
+        $content->name_content = $request->get('name_content');
+        $course->date = $request->get('date');
+        $course->time = $request->get('time');
+        $course->stock = $request->get('stock');
 
         $course->save();
 
