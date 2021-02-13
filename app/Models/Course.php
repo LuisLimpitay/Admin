@@ -12,6 +12,18 @@ class Course extends Model
 {
     use HasFactory;
 
+    
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'date',
+        'time',
+        'stock',
+    ];
+    
     // a UNO
     public function teachers()
     {
@@ -24,20 +36,13 @@ class Course extends Model
         return $this->belongsTo(Content::class);
     }
 
-    // RELACION UNO
+    // a UNO
     public function places(){
         return $this->belongsTo(Place::class);
     }
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'date',
-        'time',
-        'stock',
-    ];
-    
+    // A MUCHOS
+    public function users(){
+        return $this->belongsToMany(User::class);
+    }
 }

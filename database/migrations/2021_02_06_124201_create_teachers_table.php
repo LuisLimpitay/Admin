@@ -17,7 +17,7 @@ class CreateTeachersTable extends Migration
             $table->id();
             
             $table->string('name_teacher');
-            $table->text('about');
+            $table->text('about_teacher');
 
             $table->timestamps();
         });

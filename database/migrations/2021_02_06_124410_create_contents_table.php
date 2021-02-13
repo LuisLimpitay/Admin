@@ -17,8 +17,11 @@ class CreateContentsTable extends Migration
             $table->id();
 
             $table->string('name_content')->unique();
-            $table->longText('description_content');
-            $table->float('price');
+            $table->string('slug_content');
+
+            $table->text('description_content');
+            $table->longText('content');
+            $table->float('price_content');
 
             $table->timestamps();
         });

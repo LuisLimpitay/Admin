@@ -17,6 +17,7 @@ class CreatePlacesTable extends Migration
             $table->id();
 
             $table->string('city')->unique();
+            $table->string('slug_city');
             $table->string('direction');
 
 

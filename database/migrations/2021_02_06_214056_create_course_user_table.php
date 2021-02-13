@@ -16,7 +16,17 @@ class CreateCourseUserTable extends Migration
         Schema::create('course_user', function (Blueprint $table) {
             $table->id();
 
-             
+            $table->float('total_amount');
+            $table->integer('quantity');
+
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('course_id');
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('course_id')->references('id')->on('courses');
+            
+
+
 
 
             $table->timestamps();

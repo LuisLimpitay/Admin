@@ -23,7 +23,7 @@ class Content extends Model
 
     use HasFactory;
 
-    //Relacion uno a muchos
+    //Relacion uno a uno
     public function courses()
     {
         return $this->hasOne(Course::class);

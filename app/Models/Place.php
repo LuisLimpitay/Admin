@@ -12,6 +12,6 @@ class Place extends Model
 
     // RELACION N a N
     public function courses(){
-        return $this->hasMany(Course::class);
+        return $this->hasOne(Course::class);
     }
 }

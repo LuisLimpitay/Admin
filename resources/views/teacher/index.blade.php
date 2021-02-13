@@ -25,7 +25,7 @@
             
             <td>{{$teacher->id}}</td>
             <td>{{$teacher->name_teacher}}</td>
-            <td>{{$teacher->about}}</td>
+            <td>{{$teacher->about_teacher}}</td>
 
             <td>
                 <form action="{{ route ('teachers.destroy',$teacher->id)}}" method="POST">
